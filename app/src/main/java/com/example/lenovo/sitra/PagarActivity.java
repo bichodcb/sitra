@@ -1,28 +1,27 @@
 package com.example.lenovo.sitra;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import cz.msebera.android.httpclient.Header;
-
-public class PagarActivity extends AppCompatActivity {
+public class PagarActivity extends FragmentActivity {
     public String usuario;
     public String codigo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pagar);
-
+        setContentView(R.layout.activity_main);
+    
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        CardEmulationFragment fragment = new CardFragment();
+        transaction.replace(R.id.card_content_fragment, fragment);
+        transaction.commit();
+        
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         final RequestParams params = new RequestParams();
