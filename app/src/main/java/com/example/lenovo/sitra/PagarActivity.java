@@ -15,13 +15,23 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class PagarActivity extends AppCompatActivity {
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
+
+public class PagarActivity extends FragmentActivity  {
     public String usuario;
     public String codigo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagar);
+
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            CardFragment fragment = new CardFragment();
+            transaction.replace(R.id.card_content_fragment, fragment);
+            transaction.commit();
+        }
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
