@@ -7,20 +7,43 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 
-import com.loopj.android.http.RequestParams;
-
 public class PagarActivity extends FragmentActivity {
     public String usuario;
     public String codigo;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pagar);
+        
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            CardFragment fragment = new CardFragment();
+            transaction.replace(R.id.card_content_fragment, fragment);
+            transaction.commit();
+        }
     
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        CardEmulationFragment fragment = new CardFragment();
-        transaction.replace(R.id.card_content_fragment, fragment);
-        transaction.commit();
+        Button verSaldo = (Button) findViewById(R.id.btnSaldo);
+    
+        verSaldo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PanelActivity.class);
+                intent.putExtra("usuario", usuario);
+                startActivity(intent);
+            }
+        });
+    }
+    
+    @Override
+    protected  void onStart() {
+        super.onStart();
+    }
+    
+    /*@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -62,5 +85,5 @@ public class PagarActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
-    }
+    }*/
 }

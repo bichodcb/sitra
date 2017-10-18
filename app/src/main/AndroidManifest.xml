@@ -32,8 +32,7 @@
         <activity android:name=".PanelActivity" />
         <activity android:name=".PagarActivity" />
         <activity android:name=".RegistroActivity"></activity>
-        <!-- BEGIN_INCLUDE(CardEmulationManifest) -->
-        <service android:name=".CardService"
+        <service android:name=".card.CardService"
                  android:exported="true"
                  android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
@@ -43,7 +42,6 @@
             <meta-data android:name="android.nfc.cardemulation.host_apdu_service"
                        android:resource="@xml/aid_list"/>
         </service>
-        <!-- END_INCLUDE(CardEmulationManifest) -->
     </application>
 
 </manifest>

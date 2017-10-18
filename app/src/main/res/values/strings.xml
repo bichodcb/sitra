@@ -6,4 +6,8 @@
     <string name="error_writing">ERROR DURING WRITING. ARE YOU SURE THAT YOUR TAG IS CLOSE TO YOUR MOBILE PHONE?</string>
     <string name="ok_detection">TAG DETECTED: </string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_number">Account Number</string>
+
 </resources>

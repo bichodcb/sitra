@@ -1,21 +1,19 @@
-
-package com.example.lenovo.sitra;
+package com.example.lenovo.sitra.card;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
+
 
 public class Storage {
 	private static final String PREF_ACCOUNT_NUMBER = "account_number";
 	private static final String DEFAULT_ACCOUNT_NUMBER = "00000000";
-	private static final String TAG = "AccountStorage";
+	private static final String TAG = "Storage";
 	private static String sAccount = null;
 	private static final Object sAccountLock = new Object();
 	
 	public static void SetAccount(Context c, String s) {
 		synchronized(sAccountLock) {
-			Log.i(TAG, "Setting account number: " + s);
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
 			prefs.edit().putString(PREF_ACCOUNT_NUMBER, s).commit();
 			sAccount = s;
