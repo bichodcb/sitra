@@ -1,26 +1,27 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scroll"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/card_layout">
+
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Por favor aproxime el celular al lector... "
-        android:layout_marginTop="16dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Por favor aproxime el celular al lector... "/>
 
     <Button
         android:id="@+id/btnSaldo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:text="Ver Saldo" />
+        android:text="Ver Saldo"/>
 
     <FrameLayout
         android:id="@+id/card_content_fragment"
@@ -28,4 +29,4 @@
         android:layout_width="match_parent"
         android:layout_height="0px" />
 
-</RelativeLayout>
+</LinearLayout>
