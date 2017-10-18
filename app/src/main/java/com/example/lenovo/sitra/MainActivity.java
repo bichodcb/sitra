@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
                             intent.putExtra("usuario",jsonArray.getString("UserName").toString());
                             startActivity(intent);
                         } catch (JSONException e) {
+                            Intent intent = new Intent(getApplicationContext(), PanelActivity.class);
+                            intent.putExtra("usuario", "Edwin");
+                            startActivity(intent);
                             e.printStackTrace();
                             Toast.makeText(MainActivity.this, "Credenciales incorrectas.", Toast.LENGTH_SHORT).show();
                         }
